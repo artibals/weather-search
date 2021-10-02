@@ -1,8 +1,13 @@
 import React from 'react';
+import CityInput from './CityInput';
+import WeatherInfo from './WeatherInfo';
 
 const App = () => {
     return (
-        <div>Hello</div>
+        <div>
+            <CityInput />
+            <WeatherInfo />
+        </div>
     )
 };
 
