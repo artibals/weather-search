@@ -1,35 +1,32 @@
 import React from 'react';
-import store from '../stores'
 
 class WeatherInfo extends React.Component {
 
-    componentWillMount() {
-        this.setState(store.getState().weatherReducer)
-        this.subscribeToStore();
-    }
+    // componentWillMount() {
+    //     this.setState(store.getState().weatherReducer)
+    //     this.subscribeToStore();
+    // }
 
-    subscribeToStore() {
-        store.subscribe(() => {
-            let newState = store.getState().weatherReducer
-            this.setState(newState);
-        })
-    }
+    // subscribeToStore() {
+    //     store.subscribe(() => {
+    //         let newState = store.getState().weatherReducer
+    //         this.setState(newState);
+    //     })
+    // }
 
-    displayData() {
-        while(this.state.weatherInfo.data === null) {
-            return this.state.error
-        }
-        return this.state.weatherInfo.data
-    }
+    // displayData() {
+    //     if(this.state.weatherInfo.data === '') {
+    //         return this.state.error
+    //     }
+    //     return console.log(this.state.weatherInfo);
+    // }
 
     //{this.state.response}
     render () {
         return (
         <div>
             <div>WeatherInfo</div>
-            <span style={{outline: "1px solid red"}}>
-                {this.displayData()}
-                
+            <span style={{outline: "1px solid red"}}>             
             </span>
         </div>
         

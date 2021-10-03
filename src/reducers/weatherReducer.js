@@ -1,5 +1,5 @@
 const weatherDefaultState = {
-    weatherInfo: null,
+    weatherInfo: '',
     error: null
 };
 

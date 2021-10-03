@@ -1,24 +1,24 @@
 import weatherApi from "../weather_api"
 
 // Async action creators (redux-thunk)
-export const getWeather = (query) => {
+export const fetchWeather = (query) => {
     return dispatch => {
       return weatherApi.getWeather(query).then(
-        response => dispatch(getWeatherSuccess(response)),
-        error => dispatch(getWeatherError(error))
+        response => dispatch(fetchWeatherSuccess(response)),
+        error => dispatch(fetchWeatherError(error))
       );
     };
   };
 
 // Action creators
-function getWeatherSuccess(response) {
+function fetchWeatherSuccess(response) {
     return {
         type: 'GET_WEATHER_SUCCESS',
         response
     };
 };
 
-function getWeatherError(error) {
+function fetchWeatherError(error) {
     return {
         type: 'GET_WEATHER_ERROR',
         error

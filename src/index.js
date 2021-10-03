@@ -1,7 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from './reducers/index';
+import thunk from 'redux-thunk';
 
 import App from './components/App.js';
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 // TODO: investigate how to use root store to avoid importing individual stores.
 
@@ -10,14 +16,10 @@ import App from './components/App.js';
 // https://react-redux.js.org/using-react-redux/connect-mapstate
 // https://react-redux.js.org/using-react-redux/connect-mapdispatch
 
-// import { Provider } from 'react-redux';
-// ...
-// ReactDOM.render(
-//     <Provider store={store}>
-//         <App />
-//     </Provider>,
 
 ReactDOM.render(
-    <App />,
+    <Provider store={store}>
+        <App />
+    </Provider>,
     document.querySelector('#root')
 );

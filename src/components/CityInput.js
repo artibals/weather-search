@@ -1,25 +1,25 @@
 import React from 'react';
-import { getWeather } from '../actions';
-import store from '../stores';
+import { fetchWeather } from '../actions';
+import { useDispatch } from "react-redux";
 
-class CityInput extends React.Component {
-    getWeather(query) {
-        store.dispatch(getWeather(query))
+const CityInput = () => {
+    const dispatch = useDispatch();
+
+    const getWeather = (query) => {
+        dispatch(fetchWeather(query))
     }
 
-    render() {
         return (
             <div>
                 <div className="ui form">
                     <div className="field">
                         <label>Enter Search Term</label>
-                        <input onChange={e => this.getWeather(e.target.value)}
+                        <input onChange={e => getWeather(e.target.value)}
                          className="input" />
                     </div>
                 </div>
             </div>
         )
-    };
     
 };
 
