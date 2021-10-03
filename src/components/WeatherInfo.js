@@ -1,25 +1,51 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
+import Spinner from "./Spinner";
+// let getData = null;
 
 const WeatherInfo = () => {
     const [state, setState] = useState(null);
-    const getData = useSelector(state => state);
+    const getData = useSelector(state => state.weatherReducer);
 
     useEffect(() => {
-        if(getData.weatherReducer.error === 'undefined') {
-            setState(getData.weatherReducer.weatherInfo.data.weather)
-        }
+       if(getData.weatherInfo){
+        setState(getData.weatherInfo.data.main);
+       }
       }, [getData]);
-    // const getData = useSelector(state => state.weatherReducer.weatherInfo.data.weather);
+  
     console.log(state);
-    // console.log(state);
+
     return (
         <div>
-            <div>WeatherInfo</div>
-            <span style={{outline: "1px solid red"}}>             
-            </span>
+            {state !== null ? Object.keys(state).map((key, i) => {
+            return (
+                <div>
+                    <li className="" key={i}>
+                        <span className="">{key}  {state[key]}</span>
+                    </li>
+                </div>
+            )
+            }) : 'Waiting...'}
         </div>
     )
 };
+
+// function renderContent() {
+//     if(getData.weatherInfo.data === undefined) {
+//         return (
+//             <div>Error: </div>
+//         );
+//     };
+
+//     if(getData.weatherInfo.data !== undefined) {
+//         return (
+//             <div>
+//                 {getData.weatherInfo.data.main.temp}
+//             </div>
+//         );
+//     };
+    
+//     return <Spinner message="Please wait" />
+// };
 
 export default WeatherInfo;
