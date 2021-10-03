@@ -25,27 +25,11 @@ const WeatherInfo = () => {
                     </li>
                 </div>
             )
-            }) : 'Waiting...'}
+            }) : <Spinner />}
         </div>
     )
 };
 
-// function renderContent() {
-//     if(getData.weatherInfo.data === undefined) {
-//         return (
-//             <div>Error: </div>
-//         );
-//     };
 
-//     if(getData.weatherInfo.data !== undefined) {
-//         return (
-//             <div>
-//                 {getData.weatherInfo.data.main.temp}
-//             </div>
-//         );
-//     };
-    
-//     return <Spinner message="Please wait" />
-// };
 
 export default WeatherInfo;
