@@ -21,6 +21,8 @@ const CityInput = () => {
                          <br />
                          <br />
                          <button onClick={handler} className="ui primary button"> Confirm </button>
+                         <br />
+                         <br />
                     </div>
                 </div>
             </div>

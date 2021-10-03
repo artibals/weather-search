@@ -19,9 +19,9 @@ const WeatherInfo = () => {
         <div>
             {state !== null ? Object.keys(state).map((key, i) => {
             return (
-                <div>
-                    <li className="" key={i}>
-                        <span className="">{key}  {state[key]}</span>
+                <div className="ui celled horizontal list">
+                    <li className="item" key={i}>
+                        <span>{key}:  {state[key]}</span>
                     </li>
                 </div>
             )
