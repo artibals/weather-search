@@ -1,5 +1,5 @@
 const weatherDefaultState = {
-    weatherInfo: '',
+    weatherInfo: null,
     error: null
 };
 
@@ -7,9 +7,9 @@ const weatherDefaultState = {
 export default (state = weatherDefaultState, action) => {
     switch(action.type) { 
         case 'GET_WEATHER_SUCCESS':
-            return {...state, weatherInfo: action.response};
+            return {weatherInfo: action.response, error: null};
         case 'GET_WEATHER_ERROR':
-            return {error: action.error.toString()};
+            return {error: action.error.toString(), weatherInfo: null};
         default: 
             return state;
     }
