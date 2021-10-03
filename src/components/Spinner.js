@@ -2,7 +2,11 @@ import React from 'react';
 
 const Spinner = (props) => {
     return (
-        <div className="ui active inline loader">{props.message}</div>
+        <div>
+            <div className="ui active inline loader"></div>
+            <span>{props.message}</span>
+        </div>
+        
     );
 };
 
