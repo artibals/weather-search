@@ -6,13 +6,13 @@ const WeatherInfo = () => {
     const getData = useSelector(state => state);
 
     useEffect(() => {
-        if(getData.weatherReducer.weatherInfo.data.weather !== 'undefined') {
+        if(getData.weatherReducer.error === 'undefined') {
             setState(getData.weatherReducer.weatherInfo.data.weather)
         }
       }, [getData]);
     // const getData = useSelector(state => state.weatherReducer.weatherInfo.data.weather);
-    // console.log(getData);
     console.log(state);
+    // console.log(state);
     return (
         <div>
             <div>WeatherInfo</div>
