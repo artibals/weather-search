@@ -9,6 +9,7 @@ const CityInput = () => {
     const cityHandler=(city)=>{
         dispatch(fetchWeather(city));
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const handler = useCallback(()=>{cityHandler(city)},[city])
 
         return (

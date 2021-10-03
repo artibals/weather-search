@@ -13,19 +13,19 @@ const WeatherInfo = () => {
        }
       }, [getData]);
   
-    console.log(state);
+    console.log(getData.error);
 
     return (
         <div>
-            {state !== null ? Object.keys(state).map((key, i) => {
+            {state !== null ? Object.keys(state).map((keys, i) => {
             return (
                 <div className="ui celled horizontal list">
-                    <li className="item" key={i}>
-                        <span>{key}:  {state[key]}</span>
-                    </li>
+                    <div className="item" key={i}>
+                        {keys}:  {state[keys]}
+                    </div>
                 </div>
             )
-            }) : <Spinner />}
+            }) : getData.error ? <div> {getData.error} </div> : <Spinner message="Waiting..." />}
         </div>
     )
 };

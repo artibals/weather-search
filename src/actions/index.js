@@ -1,4 +1,4 @@
-import weatherApi from "../weather_api"
+import weatherApi from "../weather_api";
 
 // Async action creators (redux-thunk)
 export const fetchWeather = (query) => {
