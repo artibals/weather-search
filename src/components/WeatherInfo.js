@@ -1,37 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from "react-redux";
 
-class WeatherInfo extends React.Component {
+const WeatherInfo = () => {
+    const [state, setState] = useState(null);
+    const getData = useSelector(state => state);
 
-    // componentWillMount() {
-    //     this.setState(store.getState().weatherReducer)
-    //     this.subscribeToStore();
-    // }
-
-    // subscribeToStore() {
-    //     store.subscribe(() => {
-    //         let newState = store.getState().weatherReducer
-    //         this.setState(newState);
-    //     })
-    // }
-
-    // displayData() {
-    //     if(this.state.weatherInfo.data === '') {
-    //         return this.state.error
-    //     }
-    //     return console.log(this.state.weatherInfo);
-    // }
-
-    //{this.state.response}
-    render () {
-        return (
+    useEffect(() => {
+        if(getData.weatherReducer.weatherInfo.data.weather !== 'undefined') {
+            setState(getData.weatherReducer.weatherInfo.data.weather)
+        }
+      }, [getData]);
+    // const getData = useSelector(state => state.weatherReducer.weatherInfo.data.weather);
+    // console.log(getData);
+    console.log(state);
+    return (
         <div>
             <div>WeatherInfo</div>
             <span style={{outline: "1px solid red"}}>             
             </span>
         </div>
-        
-        )
-    }
+    )
 };
 
 export default WeatherInfo;
